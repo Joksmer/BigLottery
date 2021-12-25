@@ -42,7 +42,7 @@
 | :---: | :---: | ----- | ----- | ----- |
 | 1 | <img src="https://gitcode.net/uploads/-/system/project/avatar/57512/%E6%88%91%E7%9A%84%E5%A5%96%E5%93%81.png" width="64px"> | 分布式核心功能服务系统 | [Lottery](https://gitcode.net/KnowledgePlanet/Lottery) | 提供抽奖业务领域功能，以分布式部署的方式提供 RPC 服务。 |
 | 2 | <img src="https://gitcode.net/uploads/-/system/project/avatar/80935/API%E6%8E%A5%E5%8F%A3.png" width="64px"> | 网关API服务 | [Lottery-API](https://gitcode.net/KnowledgePlanet/Lottery-API) | 网关服务，提供；H5 页面抽奖、公众号开发回复消息抽奖。 |
-| 3 | <img src="https://gitcode.net/uploads/-/system/project/avatar/79776/%E7%94%A8%E6%88%B7%E7%BB%84.png" width="64px"> | C端用户系统 | [Lottery-Front](https://gitcode.net/KnowledgePlanet/Lottery-Front) | 开发中，vue 前端页面 |
+| 3 | <img src="https://gitcode.net/uploads/-/system/project/avatar/79776/%E7%94%A8%E6%88%B7%E7%BB%84.png" width="64px"> | C端用户系统 | [lottery-front](https://gitcode.net/KnowledgePlanet/lottery-front) | 开发中，vue 前端页面 |
 | 4 | <img src="https://gitcode.net/uploads/-/system/project/avatar/79714/%E8%BF%90%E8%90%A5%E9%A2%84%E6%9C%9F.png" width="64px"> | B端运营系统 | [Lottery-ERP](https://gitcode.net/KnowledgePlanet/Lottery-ERP) | 满足运营人员对于活动的查询、配置、修改、审核等操作。 |
 | 5 | <img src="https://gitcode.net/uploads/-/system/project/avatar/67564/%E6%95%B0%E6%8D%AE%E5%BA%93.png" width="64px"> | 分库分表路由组件 | [db-router-spring-boot-starter](https://gitcode.net/KnowledgePlanet/db-router-spring-boot-starter) | **本项目依赖自研分库分表组件，需要下载后构建** 开发一个基于 HashMap 核心设计原理，使用哈希散列+扰动函数的方式，把数据散列到多个库表中的组件，并验证使用。 |
 | 6 | <img src="https://gitcode.net/uploads/-/system/project/avatar/58903/%E6%B5%8B%E8%AF%95.png" width="64px"> | 测试验证系统 | [Lottery-Test](https://gitcode.net/KnowledgePlanet/Lottery-Test) | 用于测试验证RPC服务、系统功能调用的测试系统。 |
