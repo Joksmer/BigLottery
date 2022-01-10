@@ -1,5 +1,7 @@
 package cn.itedus.lottery.domain.strategy.service.algorithm.impl;
 
+import cn.itedus.lottery.common.Constants;
+import cn.itedus.lottery.domain.strategy.annotation.Strategy;
 import cn.itedus.lottery.domain.strategy.model.vo.AwardRateVO;
 import cn.itedus.lottery.domain.strategy.service.algorithm.BaseAlgorithm;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,7 @@ import java.util.List;
  * @Copyright：公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
 @Component("entiretyRateRandomDrawAlgorithm")
+@Strategy(strategyMode = Constants.StrategyMode.ENTIRETY)
 public class EntiretyRateRandomDrawAlgorithm extends BaseAlgorithm {
 
     @Override

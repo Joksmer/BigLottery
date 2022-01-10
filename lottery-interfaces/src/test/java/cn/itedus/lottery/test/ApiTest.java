@@ -3,6 +3,12 @@ package cn.itedus.lottery.test;
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.net.NetUtil;
 import cn.hutool.core.util.IdUtil;
+import cn.itedus.lottery.domain.activity.model.req.ActivityInfoLimitPageReq;
+import cn.itedus.lottery.domain.activity.model.vo.StrategyVO;
+import cn.itedus.lottery.domain.strategy.model.vo.DrawAwardVO;
+import cn.itedus.lottery.infrastructure.po.Strategy;
+import cn.itedus.lottery.rpc.activity.booth.dto.AwardDTO;
+import cn.itedus.lottery.rpc.activity.deploy.req.ActivityPageReq;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
@@ -80,6 +86,22 @@ public class ApiTest {
     public void test_id() {
         String random = RandomStringUtils.randomNumeric(9);
         System.out.println(random);
+    }
+
+    @Test
+    public void test_vo2dto() {
+
+        DrawAwardVO drawAwardVO = new DrawAwardVO();
+
+        AwardDTO awardDTO = new AwardDTO();
+
+
+    }
+
+    public void addStrategy(StrategyVO strategy) {
+        Strategy req = new Strategy();
+
+
     }
 
 }

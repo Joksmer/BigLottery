@@ -1,10 +1,13 @@
 package cn.itedus.lottery.domain.strategy.service.draw;
 
-import cn.itedus.lottery.common.Constants;
+import cn.itedus.lottery.domain.strategy.annotation.Strategy;
 import cn.itedus.lottery.domain.strategy.service.algorithm.IDrawAlgorithm;
+import org.springframework.core.annotation.AnnotationUtils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,18 +20,21 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DrawConfig {
 
     @Resource
-    private IDrawAlgorithm entiretyRateRandomDrawAlgorithm;
+    private List<IDrawAlgorithm> algorithmList = new ArrayList<>();
 
-    @Resource
-    private IDrawAlgorithm singleRateRandomDrawAlgorithm;
-
-    /** 抽奖策略组 */
+    /**
+     * 抽奖策略组
+     */
     protected static Map<Integer, IDrawAlgorithm> drawAlgorithmGroup = new ConcurrentHashMap<>();
 
     @PostConstruct
     public void init() {
-        drawAlgorithmGroup.put(Constants.StrategyMode.ENTIRETY.getCode(), entiretyRateRandomDrawAlgorithm);
-        drawAlgorithmGroup.put(Constants.StrategyMode.SINGLE.getCode(), singleRateRandomDrawAlgorithm);
+        algorithmList.forEach(algorithm -> {
+            Strategy strategy = AnnotationUtils.findAnnotation(algorithm.getClass(), Strategy.class);
+            if (null != strategy) {
+                drawAlgorithmGroup.put(strategy.strategyMode().getCode(), algorithm);
+            }
+        });
     }
 
 }

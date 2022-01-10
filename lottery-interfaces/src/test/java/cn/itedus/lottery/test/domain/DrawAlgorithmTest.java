@@ -68,7 +68,7 @@ public class DrawAlgorithmTest {
 
     @Test
     public void test_iDrawExec() {
-        DrawResult drawResult = iDrawExec.doDrawExec(new DrawReq("小傅哥", 10001L));
+        DrawResult drawResult = iDrawExec.doDrawExec(new DrawReq("fustack002", 10001L));
         logger.info("测试结果：{}", JSON.toJSONString(drawResult));
     }
 

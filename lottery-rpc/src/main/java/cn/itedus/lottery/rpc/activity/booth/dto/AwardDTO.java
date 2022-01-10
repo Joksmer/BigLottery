@@ -56,6 +56,9 @@ public class AwardDTO implements Serializable {
      */
     private Date grantDate;
 
+    public AwardDTO() {
+    }
+
     public AwardDTO(String userId) {
         this.userId = userId;
     }
