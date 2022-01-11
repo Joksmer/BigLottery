@@ -18,6 +18,7 @@
 
 ⛳ **目录**
 
+- [©版权保护](#) - 此学习内容受知识星球签约版权保护，违返规定后果自负。在学习中禁止把课程代码、课程小册、课程视频传播到其他平台，包括：Gitee、Github 设置为public，以及其他平台等。你可以把学习代码提交到作业仓库：[https://gitcode.net/CreativeAlliance](https://gitcode.net/CreativeAlliance)
 - [《抽奖系统 | 实战开发小册》，Go！](https://gitcode.net/KnowledgePlanet/Lottery/-/wikis/home) - `预计5章37节，更新中`
 - [学习说明](https://gitcode.net/KnowledgePlanet/Lottery#-%E5%AD%A6%E4%B9%A0%E8%AF%B4%E6%98%8E)
 - [工程目录](https://gitcode.net/KnowledgePlanet/Lottery#-%E5%B7%A5%E7%A8%8B%E5%88%97%E8%A1%A8) - `分布式服务工程`、`前端工程`、`运营后台`、`技术组件`、`测试工程`
