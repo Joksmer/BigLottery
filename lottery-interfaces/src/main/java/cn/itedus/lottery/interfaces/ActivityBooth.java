@@ -20,7 +20,6 @@ import javax.annotation.Resource;
  * 活动展台
  */
 @Service
-@org.apache.dubbo.config.annotation.Service
 public class ActivityBooth implements IActivityBooth {
 
     @Resource
