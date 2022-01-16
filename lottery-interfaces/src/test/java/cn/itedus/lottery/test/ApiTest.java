@@ -99,9 +99,32 @@ public class ApiTest {
     }
 
     public void addStrategy(StrategyVO strategy) {
+
+        User user = new User();
+
         Strategy req = new Strategy();
 
+    }
 
+    class User {
+        private Long strategyId;
+        private String strategyDesc;
+
+        public Long getStrategyId() {
+            return strategyId;
+        }
+
+        public void setStrategyId(Long strategyId) {
+            this.strategyId = strategyId;
+        }
+
+        public String getStrategyDesc() {
+            return strategyDesc;
+        }
+
+        public void setStrategyDesc(String strategyDesc) {
+            this.strategyDesc = strategyDesc;
+        }
     }
 
 }
