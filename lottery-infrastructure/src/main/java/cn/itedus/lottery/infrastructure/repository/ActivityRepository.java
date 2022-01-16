@@ -180,7 +180,7 @@ public class ActivityRepository implements IActivityRepository {
         //  1. 获取抽奖活动库存 Key
         String stockKey = Constants.RedisKey.KEY_LOTTERY_ACTIVITY_STOCK_COUNT(activityId);
 
-        // 2. 扣减库存，目前占用库存数
+        // 2. 扣减库存，目前占用库存数。「给incr的结果加一层分段锁，在不影响性能的情况下，会可靠。以往压测tps 2500 ~ 5000 计算结果 1 + 100万，最终结果不是100万，不过可能因环境导致」
         Integer stockUsedCount = (int) redisUtil.incr(stockKey, 1);
 
         // 3. 超出库存判断，进行恢复原始库存
