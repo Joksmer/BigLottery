@@ -18,7 +18,9 @@
 
 ⛳ **目录**
 
+- [©版权保护](#) - 此学习内容受知识星球签约版权保护，违返规定后果自负。在学习中禁止把课程代码、课程小册、课程视频传播到其他平台，包括：Gitee、Github 设置为public，以及其他平台等。你可以把学习代码提交到作业仓库：[https://gitcode.net/CreativeAlliance](https://gitcode.net/CreativeAlliance)
 - [《抽奖系统 | 实战开发小册》，Go！](https://gitcode.net/KnowledgePlanet/Lottery/-/wikis/home) - `预计5章37节，更新中`
+- [项目架构](https://gitcode.net/KnowledgePlanet/Lottery#-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84)
 - [学习说明](https://gitcode.net/KnowledgePlanet/Lottery#-%E5%AD%A6%E4%B9%A0%E8%AF%B4%E6%98%8E)
 - [工程目录](https://gitcode.net/KnowledgePlanet/Lottery#-%E5%B7%A5%E7%A8%8B%E5%88%97%E8%A1%A8) - `分布式服务工程`、`前端工程`、`运营后台`、`技术组件`、`测试工程`
 - [环境配置 🤔 `重点注意使用SQL按照分支步骤更新，不要用最新的SQL对应最开始的代码`](https://gitcode.net/KnowledgePlanet/Lottery#-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
@@ -27,6 +29,14 @@
 - [联系作者](https://gitcode.net/KnowledgePlanet/Lottery#-%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85)
 - [感谢支持](https://gitcode.net/KnowledgePlanet/Lottery#-%E6%84%9F%E8%B0%A2%E6%94%AF%E6%8C%81)
 - [CreativeAlliance 知识星球 • 技术联盟](https://gitcode.net/CreativeAlliance) - `为星球用户提供工程代码提交空间，方便技术交流。作业项目提交、分享学习代码、问题代码求助，这些你都可以创建仓库提交代码。当然你要有一些代码提交经验。`
+
+## 🎨 项目架构
+
+![](https://bugstack.cn/images/article/project/lottery/introduce/introduce-220101-01.png)
+
+- 此系统架构为 DDD 领域驱动设计的四层架构实现方式，以重视代码实现落地的方式向读者介绍和展示如何开发这样的代码。
+- 在 Domain 领域层逐步通过拆解系统流程设计，按照职责边界的领域模块进行设计和开发，最终在应用层进行逻辑功能编排。
+- 这个系统中会体现出很多的设计模式思想和最终的实现，只有把 DDD 和设计模式结合起来，才能开发出更加易于扩展和维护的代码结构。
 
 ## 📝 学习说明
 
@@ -50,12 +60,13 @@
 ## 🎨 环境配置
 
 - **技术栈项**：JDK1.8、Maven3.6.3、Mysql5.7(可升级配置)，SpringBoot、Mybatis、Dubbo 随POM版本
+- **初始打包**：你需要在 Lottery 工程的 Maven 根上，点击 Install 这样才能完整打包，否则 Lottery-Test 等，不能正常引入 Jar 包
 - **建表语句**：[doc/asserts/sql](https://gitcode.net/KnowledgePlanet/Lottery/-/blob/master/doc/assets/sql/lottery.sql) - `建议随非分支内sql版本走，因为需求不断迭代升级优化，直接使用最新的会遇到在各个分支下的代码运行问题`
 - **代码仓库**：`2种使用方式`
    - 密码方式：登录的用户ID为 CSDN 个人中心的用户ID，[https://i.csdn.net/#/user-center/profile](https://i.csdn.net/#/user-center/profile) 密码为 CSDN 登录密码。如果没有密码或者忘记，可以在 CSDN 登录页找回密码。
    - SSH 秘钥免登录方式，设置：[https://gitcode.net/-/profile/keys](https://gitcode.net/-/profile/keys) 文档：[生成 SSH 密钥](https://gitcode.net/codechina/help-docs/-/wikis/docs/ssh#%E7%94%9F%E6%88%90-ssh-%E5%AF%86%E9%92%A5)
 - **学习使用**：下载代码库后，切换本地分支到wiki中章节对应的分支，这样代码与章节内容是对应的，否则你在master看到的是全量代码。   
-- **下载依赖**：[db-router-spring-boot-starter](https://gitcode.net/KnowledgePlanet/db-router-spring-boot-starter) 本项目依赖自研分库分表组件，需要下载后构建
+- **下载依赖**：[db-router-spring-boot-starter](https://gitcode.net/KnowledgePlanet/db-router-spring-boot-starter) 本项目依赖自研分库分表组件，需要可以用IDEA像打开一个项目一样打开，之后点击 Maven Install 这样就把 Jar 打包到你本地仓库了，Lottery 就可以引入这个 Jar 了
 
 ## 📐 开发规范
 
