@@ -43,7 +43,7 @@ public class DoingState extends AbstractState {
 
     @Override
     public Result open(Long activityId, Enum<Constants.ActivityState> currentState) {
-        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "活动中不可开启");
+        return Result.buildResult(Constants.ResponseCode.UN_ERROR, "非关闭活动不可开启");
     }
 
     @Override

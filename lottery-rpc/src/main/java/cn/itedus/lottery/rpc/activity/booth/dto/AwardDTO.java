@@ -63,6 +63,14 @@ public class AwardDTO implements Serializable {
         this.userId = userId;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public Long getActivityId() {
         return activityId;
     }
