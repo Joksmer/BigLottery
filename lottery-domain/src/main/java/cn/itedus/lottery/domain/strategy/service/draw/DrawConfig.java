@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DrawConfig {
 
     @Resource
-    private List<IDrawAlgorithm> algorithmList = new ArrayList<>();
+    private List<IDrawAlgorithm> algorithmList;
 
     /**
      * 抽奖策略组
