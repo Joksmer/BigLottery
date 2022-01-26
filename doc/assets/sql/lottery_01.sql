@@ -208,7 +208,7 @@ CREATE TABLE `user_take_activity_count` (
   `u_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '用户ID',
   `activity_id` bigint(20) DEFAULT NULL COMMENT '活动ID',
   `total_count` int(11) DEFAULT NULL COMMENT '总计可领次数',
-  `left_count` int(11) DEFAULT NULL COMMENT '剩余可领次数',
+  `left_count` int(11) DEFAULT NULL COMMENT '剩余领取次数',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
