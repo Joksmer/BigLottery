@@ -1,24 +1,19 @@
 package cn.itedus.lottery.test.vo2dto.bbb;
 
-import javax.xml.crypto.Data;
 
+import lombok.Data;
+
+@Data
 public class User {
 
-    private Long id;
+    private static final long serialVersionUID = 1L;
+
     private String userId;
     private String userNickName;
     private String userHead;
     private String userPassword;
     private Data createTime;
     private Data updateTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUserId() {
         return userId;
