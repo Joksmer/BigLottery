@@ -204,6 +204,9 @@ public class ActivityRepository implements IActivityRepository {
 
     @Override
     public void recoverActivityCacheStockByRedis(Long activityId, String tokenKey, String code) {
+        if (null == tokenKey) {
+            return;
+        }
         // 删除分布式锁 Key
         redisUtil.del(tokenKey);
     }
