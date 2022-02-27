@@ -47,6 +47,9 @@ public class LotteryActivityPartakeRecordListener {
 
         // 3. 更新数据库库存【实际场景业务体量较大，可能也会由于MQ消费引起并发，对数据库产生压力，所以如果并发量较大，可以把库存记录缓存中，并使用定时任务进行处理缓存和数据库库存同步，减少对数据库的操作次数】
         activityPartake.updateActivityStock(activityPartakeRecordVO);
+
+        // 4. 消息消费完成
+        ack.acknowledge();
     }
 
 }
