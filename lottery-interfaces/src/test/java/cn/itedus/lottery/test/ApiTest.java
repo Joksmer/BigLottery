@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import java.security.SecureRandom;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
@@ -125,6 +127,18 @@ public class ApiTest {
         public void setStrategyDesc(String strategyDesc) {
             this.strategyDesc = strategyDesc;
         }
+    }
+
+    public static void main(String[] args) {
+
+//        Pattern pattern = Pattern.compile("(?i)SELECT\\s?(\\*).*?(?i)FROM\\s?(.*?);");
+        Pattern pattern = Pattern.compile("(?=FROM)");
+        Matcher matcher = pattern.matcher("SELECT * FROM java;");
+
+        while (matcher.find()) {
+            System.out.println(matcher.group(0));
+        }
+
     }
 
 }
