@@ -96,6 +96,13 @@ public class ApiTest {
         DrawAwardVO drawAwardVO = new DrawAwardVO();
 
         AwardDTO awardDTO = new AwardDTO();
+        awardDTO.setAwardId(drawAwardVO.getAwardId());
+        awardDTO.setAwardType(drawAwardVO.getAwardType());
+        awardDTO.setAwardName(drawAwardVO.getAwardName());
+        awardDTO.setAwardContent(drawAwardVO.getAwardContent());
+        awardDTO.setStrategyMode(drawAwardVO.getStrategyMode());
+        awardDTO.setGrantType(drawAwardVO.getGrantType());
+        awardDTO.setGrantDate(drawAwardVO.getGrantDate());
 
 
     }
