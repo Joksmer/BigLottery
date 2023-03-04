@@ -36,7 +36,7 @@ public class ActivityBillVO {
     /** activity 每人可参与次数 */
     private Integer takeCount;
 
-    /** user_take_activity_count 剩余领取次数 */
+    /** user_take_activity_count 剩余领取次数【leftCount 是剩余的，userTakeLeftCount说的是用户从剩余的拿走多少，也就是消耗多少】 */
     private Integer userTakeLeftCount;
 
     public String getuId() {
