@@ -35,6 +35,12 @@ public interface IActivityPartake {
     Result recordDrawOrder(DrawOrderVO drawOrder);
 
     /**
+     * 锁定记录
+     * @return
+     */
+    Result lockTackActivity(String uId, Long activityId, Long takeId);
+
+    /**
      * 更新发货单 MQ 状态
      *
      * @param uId     用户ID
