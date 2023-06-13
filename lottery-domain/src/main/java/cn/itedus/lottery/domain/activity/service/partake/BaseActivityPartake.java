@@ -10,6 +10,7 @@ import cn.itedus.lottery.domain.activity.model.vo.UserTakeActivityVO;
 import cn.itedus.lottery.domain.support.ids.IIdGenerator;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -43,7 +44,7 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
         }
 
         // 4. 扣减活动库存，通过Redis【活动库存扣减编号，作为锁的Key，缩小颗粒度】 Begin
-        StockResult subtractionActivityResult = this.subtractionActivityStockByRedis(req.getuId(), req.getActivityId(), activityBillVO.getStockCount());
+        StockResult subtractionActivityResult = this.subtractionActivityStockByRedis(req.getuId(), req.getActivityId(), activityBillVO.getStockCount(), activityBillVO.getEndDateTime());
 
         if (!Constants.ResponseCode.SUCCESS.getCode().equals(subtractionActivityResult.getCode())) {
             this.recoverActivityCacheStockByRedis(req.getActivityId(), subtractionActivityResult.getStockKey(), subtractionActivityResult.getCode());
@@ -132,7 +133,7 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
      * @param stockCount 总库存
      * @return 扣减结果
      */
-    protected abstract StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount);
+    protected abstract StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount, Date endDateTime);
 
     /**
      * 恢复活动库存，通过Redis 【如果非常异常，则需要进行缓存库存恢复，只保证不超卖的特性，所以不保证一定能恢复占用库存，另外最终可以由任务进行补偿库存】

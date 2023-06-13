@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -83,8 +84,8 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
     }
 
     @Override
-    protected StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount) {
-        return activityRepository.subtractionActivityStockByRedis(uId, activityId, stockCount);
+    protected StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount, Date endDateTime) {
+        return activityRepository.subtractionActivityStockByRedis(uId, activityId, stockCount, endDateTime);
     }
 
     @Override

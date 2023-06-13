@@ -17,7 +17,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -175,7 +178,7 @@ public class ActivityRepository implements IActivityRepository {
     }
 
     @Override
-    public StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount) {
+    public StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount, Date endDateTime) {
 
         //  1. 获取抽奖活动库存 Key
         String stockKey = Constants.RedisKey.KEY_LOTTERY_ACTIVITY_STOCK_COUNT(activityId);
@@ -192,8 +195,9 @@ public class ActivityRepository implements IActivityRepository {
         // 4. 以活动库存占用编号，生成对应加锁Key，细化锁的颗粒度
         String stockTokenKey = Constants.RedisKey.KEY_LOTTERY_ACTIVITY_STOCK_COUNT_TOKEN(activityId, stockUsedCount);
 
-        // 5. 使用 Redis.setNx 加一个分布式锁
-        boolean lockToken = redisUtil.setNx(stockTokenKey, 350L);
+        // 5. 使用 Redis.setNx 加一个分布式锁；以活动结束时间，设定锁的有效时间。个人占用的锁，不需要被释放。
+        long milliseconds = endDateTime.getTime() - System.currentTimeMillis();
+        boolean lockToken = redisUtil.setNx(stockTokenKey, milliseconds);
         if (!lockToken) {
             logger.info("抽奖活动{}用户秒杀{}扣减库存，分布式锁失败：{}", activityId, uId, stockTokenKey);
             return new StockResult(Constants.ResponseCode.ERR_TOKEN.getCode(), Constants.ResponseCode.ERR_TOKEN.getInfo());
