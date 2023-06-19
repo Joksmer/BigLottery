@@ -2,8 +2,6 @@
 
 # 1：安装docker
 
-
-
 # 2：安装portainer
 
 ```
