@@ -178,32 +178,34 @@ BEGIN;
 INSERT INTO `strategy` VALUES (1, 10001, 'test', 2, 1, NULL, '', '2021-09-25 08:15:52', '2021-09-25 08:15:52');
 COMMIT;
 
--- ----------------------------
--- Table structure for strategy_detail
--- ----------------------------
+# 转储表 strategy_detail
+# ------------------------------------------------------------
+
 DROP TABLE IF EXISTS `strategy_detail`;
+
 CREATE TABLE `strategy_detail` (
-  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-  `strategy_id` bigint(11) NOT NULL COMMENT '策略ID',
-  `award_id` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '奖品ID',
-  `award_name` varchar(128) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '奖品描述',
-  `award_count` int(11) DEFAULT NULL COMMENT '奖品库存',
-  `award_surplus_count` int(11) DEFAULT '0' COMMENT '奖品剩余库存',
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `strategy_id` bigint NOT NULL COMMENT '策略ID',
+  `award_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '奖品ID',
+  `award_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '奖品描述',
+  `award_count` int DEFAULT NULL COMMENT '奖品库存',
+  `award_surplus_count` int DEFAULT '0' COMMENT '奖品剩余库存',
   `award_rate` decimal(5,2) DEFAULT NULL COMMENT '中奖概率',
-  `create_time` datetime(3) DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime(3) DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_strategy_award` (`strategy_id`,`award_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='策略明细';
 
--- ----------------------------
--- Records of strategy_detail
--- ----------------------------
-BEGIN;
-INSERT INTO `strategy_detail` VALUES (1, 10001, '1', 'IMac', 10, 0, 0.05, '2021-08-15 15:38:05', '2021-08-15 15:38:05');
-INSERT INTO `strategy_detail` VALUES (2, 10001, '2', 'iphone', 20, 19, 0.15, '2021-08-15 15:38:05', '2021-08-15 15:38:05');
-INSERT INTO `strategy_detail` VALUES (3, 10001, '3', 'ipad', 50, 43, 0.20, '2021-08-15 15:38:05', '2021-08-15 15:38:05');
-INSERT INTO `strategy_detail` VALUES (4, 10001, '4', 'AirPods', 100, 70, 0.25, '2021-08-15 15:38:05', '2021-08-15 15:38:05');
-INSERT INTO `strategy_detail` VALUES (5, 10001, '5', 'Book', 500, 389, 0.35, '2021-08-15 15:38:05', '2021-08-15 15:38:05');
-COMMIT;
+LOCK TABLES `strategy_detail` WRITE;
+/*!40000 ALTER TABLE `strategy_detail` DISABLE KEYS */;
+
+INSERT INTO `strategy_detail` (`id`, `strategy_id`, `award_id`, `award_name`, `award_count`, `award_surplus_count`, `award_rate`, `create_time`, `update_time`)
+VALUES
+	(1,10001,'1','IMac',10,0,0.05,'2021-08-15 15:38:05','2021-08-15 15:38:05'),
+	(2,10001,'2','iphone',20,19,0.15,'2021-08-15 15:38:05','2021-08-15 15:38:05'),
+	(3,10001,'3','ipad',50,43,0.20,'2021-08-15 15:38:05','2021-08-15 15:38:05'),
+	(4,10001,'4','AirPods',100,70,0.25,'2021-08-15 15:38:05','2021-08-15 15:38:05'),
+	(5,10001,'5','Book',500,389,0.35,'2021-08-15 15:38:05','2021-08-15 15:38:05');
 
 SET FOREIGN_KEY_CHECKS = 1;
